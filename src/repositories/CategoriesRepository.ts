@@ -6,7 +6,7 @@ interface ICreateCategoryDTP {
 }
 
 class CategoriesRepository {
-    
+
     private categories: Category[] = [];
 
     constructor() {
@@ -23,6 +23,10 @@ class CategoriesRepository {
         });
 
         this.categories.push(category);
+    }
+
+    list(): Category[] {
+        return this.categories;
     }
 }
 
