@@ -10,9 +10,6 @@ class User {
 
     @Column()
     name: string;
-    
-    @Column()
-    username: string;
 
     @Column()
     email: string;
@@ -24,7 +21,7 @@ class User {
     driver_license: string;
 
     @Column()
-    admin: boolean;
+    isAdmin: boolean;
 
     @CreateDateColumn()
     created_at: Date;
