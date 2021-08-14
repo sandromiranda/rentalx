@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 
@@ -10,7 +11,7 @@ interface IRequest {
 @injectable()
 class UpdateUserAvatarUseCase {
     constructor(
-        @inject("USersRepository")
+        @inject("UsersRepository")
         private usersRepository: IUsersRepository
     ) {}
     async execute({ user_id, avatar_file }: IRequest) {
