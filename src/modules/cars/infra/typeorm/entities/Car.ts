@@ -1,4 +1,4 @@
-
+import { v4 as uuidV4 } from "uuid";
 
 class Car {
 
@@ -21,6 +21,15 @@ class Car {
     category_id: string;
 
     created_at: Date;
+
+    // this is temporary used for testing create car use case spec
+    constructor() {
+        if (!this.id) {
+            this.id = uuidV4();
+            this.available = true;
+            this.created_at = new Date();
+        }
+    }
 }
 
 export { Car }
