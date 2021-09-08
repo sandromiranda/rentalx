@@ -25,9 +25,21 @@ describe("Create car specification", () => {
     });
 
     it("should be able to add a new specification to the car", async () => {
-        const car_id = "1234";
+        const car = await carsRepositoryInMemory.create({
+            name: "Name Car",
+            description: "Desc car",
+            daily_rate: 100,
+            license_plate: "ABC-1122",
+            file_amount: 60,
+            brand: "new brand",
+            category_id: "category",
+        });
+
         const specifications_id = ["54321"];
 
-        await createCarSpecificationUseCase.execute({ car_id, specifications_id });
+        await createCarSpecificationUseCase.execute({ 
+            car_id: car.id,
+            specifications_id 
+        });
     });
 })
