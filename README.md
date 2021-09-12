@@ -1,3 +1,21 @@
+# Getting started with the Rentx app
+
+## Steps to follow
+
+Clone this repository
+
+### git clone https://github.com/sandromiranda/react-task-tracker.git
+
+Use yarn or npm to install all node modules
+
+### yarn install or npm install 
+
+Makse sure you have [Docker](https://docs.docker.com/get-docker/) installed
+Run the command below to build the rentx image (reading the info from 'Dockerfile')
+
+### docker build -t rentx .
+
+
 # Cadastro de carro
 **RF** 
 Deve ser possível cadastrar um novo carro.
