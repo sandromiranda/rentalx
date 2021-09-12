@@ -2,18 +2,36 @@
 
 ## Steps to follow
 
+
 Clone this repository
 
-### git clone https://github.com/sandromiranda/react-task-tracker.git
+### `git clone https://github.com/sandromiranda/rentalx.git`
+
 
 Use yarn or npm to install all node modules
 
-### yarn install or npm install 
+### `yarn install or npm install`
 
-Makse sure you have [Docker](https://docs.docker.com/get-docker/) installed
-Run the command below to build the rentx image (reading the info from 'Dockerfile')
 
-### docker build -t rentx .
+Makse sure you have [Docker](https://docs.docker.com/get-docker/) and Docker-compose installed. The command below will build and run the rentx image (reading the info from 'docker-compose.yml')
+
+### `docker-compose up -d`
+
+
+To verify the container logs, run:
+
+### `docker logs rentx -f`
+
+
+The next command should run the migrations to build the postgres DB
+
+### `yarn typeorm migration:run`
+
+
+In order to manage the application, let's run the command below to create the user admin - more details in the admin.ts file
+
+### `yarn seed:admin`
+
 
 
 # Cadastro de carro
