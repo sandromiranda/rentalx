@@ -5,7 +5,7 @@ import { inject } from "tsyringe"
 
 interface IRequest {
     car_id: string;
-    specifications_id: string[];
+    specifications_id: string[];    
 }
 
 class CreateCarSpecificationUseCase {
