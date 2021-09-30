@@ -1,5 +1,7 @@
 import { getRepository, Repository } from "typeorm";
+
 import { ICarsImageRepository } from "@modules/cars/repositories/ICarsImageRepository";
+
 import { CarImage } from "../entities/CarImage";
 
 class CarsImagesRepository implements ICarsImageRepository {
