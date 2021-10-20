@@ -1,3 +1,4 @@
+import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { AppError } from "@shared/errors/AppError";
 
@@ -17,7 +18,7 @@ class CreateRentalUseCase {
         user_id,
         car_id,
         expected_return_date
-    }: IRequest): Promise<void> {
+    }: IRequest): Promise<Rental> {
         // cannot create a new rental for a car that is already rented
         const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
 
@@ -31,6 +32,14 @@ class CreateRentalUseCase {
         if(rentalOpenToUser) {
             throw new AppError("User already have rental opened ")
         }
+
+        const rental = await this.rentalsRepository.create({
+            user_id,
+            car_id,
+            expected_return_date
+        })
+
+        return rental
     }
 }
 
