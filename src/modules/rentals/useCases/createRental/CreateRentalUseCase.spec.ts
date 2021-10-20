@@ -34,7 +34,7 @@ describe("Create Rental", () => {
                 expected_return_date: new Date(),           
             })
     
-            const rental = await createRentalUseCase.execute({
+            await createRentalUseCase.execute({
                 user_id: "12335",
                 car_id: "112233",
                 expected_return_date: new Date(),           
@@ -42,5 +42,24 @@ describe("Create Rental", () => {
         }).rejects.toBeInstanceOf(AppError)
 
     })
+
+    it("should not be able to create a new rental if there is already one for that car", async () => {
+
+        expect(async () => {
+            await createRentalUseCase.execute({
+                user_id: "1234",
+                car_id: "test",
+                expected_return_date: new Date(),           
+            })
+    
+            await createRentalUseCase.execute({
+                user_id: "4321",
+                car_id: "test",
+                expected_return_date: new Date(),           
+            })
+        }).rejects.toBeInstanceOf(AppError)
+
+    })
+
 
 })
