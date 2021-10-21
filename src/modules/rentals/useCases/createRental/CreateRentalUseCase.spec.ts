@@ -65,5 +65,17 @@ describe("Create Rental", () => {
 
     })
 
+    it("should not be able to create a new rental with invalid return time", async () => {
+
+        expect(async () => {
+            await createRentalUseCase.execute({
+                user_id: "1234",
+                car_id: "test",
+                expected_return_date: dayjs().toDate(),           
+            })
+    
+        }).rejects.toBeInstanceOf(AppError)
+
+    })
 
 })
