@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 import { RentalsRepositoryInMemory } from "@modules/rentals/repositories/in-memory/RentalsRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
 import { CreateRentalUseCase } from "./CreateRentalUseCase"
@@ -6,6 +8,8 @@ let createRentalUseCase: CreateRentalUseCase
 let rentalsRepositoryInMemory: RentalsRepositoryInMemory;
 
 describe("Create Rental", () => {
+
+    const dayAdd24Hours = dayjs().add(1, "day").toDate();
 
     beforeEach(() => {
         rentalsRepositoryInMemory = new RentalsRepositoryInMemory();
@@ -16,7 +20,7 @@ describe("Create Rental", () => {
         const rental = await createRentalUseCase.execute({
             user_id: "12335",
             car_id: "112233",
-            expected_return_date: new Date(),           
+            expected_return_date: dayAdd24Hours,           
         })
 
         console.log(rental)
@@ -31,13 +35,13 @@ describe("Create Rental", () => {
             await createRentalUseCase.execute({
                 user_id: "12335",
                 car_id: "112233",
-                expected_return_date: new Date(),           
+                expected_return_date: dayAdd24Hours,           
             })
     
             await createRentalUseCase.execute({
                 user_id: "12335",
                 car_id: "112233",
-                expected_return_date: new Date(),           
+                expected_return_date: dayAdd24Hours,           
             })
         }).rejects.toBeInstanceOf(AppError)
 
@@ -49,13 +53,13 @@ describe("Create Rental", () => {
             await createRentalUseCase.execute({
                 user_id: "1234",
                 car_id: "test",
-                expected_return_date: new Date(),           
+                expected_return_date: dayAdd24Hours,           
             })
     
             await createRentalUseCase.execute({
                 user_id: "4321",
                 car_id: "test",
-                expected_return_date: new Date(),           
+                expected_return_date: dayAdd24Hours,           
             })
         }).rejects.toBeInstanceOf(AppError)
 
