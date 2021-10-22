@@ -3,9 +3,11 @@ import dayjs from "dayjs";
 import { RentalsRepositoryInMemory } from "@modules/rentals/repositories/in-memory/RentalsRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
 import { CreateRentalUseCase } from "./CreateRentalUseCase"
+import { DayjsDateProvider } from "@shared/container/providers/DateProvider/Implementations/DayjsDateProvider";
 
 let createRentalUseCase: CreateRentalUseCase
 let rentalsRepositoryInMemory: RentalsRepositoryInMemory;
+let dayJsDateProvider: DayjsDateProvider;
 
 describe("Create Rental", () => {
 
@@ -13,7 +15,11 @@ describe("Create Rental", () => {
 
     beforeEach(() => {
         rentalsRepositoryInMemory = new RentalsRepositoryInMemory();
-        createRentalUseCase = new CreateRentalUseCase(rentalsRepositoryInMemory);
+        dayJsDateProvider = new DayjsDateProvider();
+        createRentalUseCase = new CreateRentalUseCase(
+            rentalsRepositoryInMemory,
+            dayJsDateProvider
+        );
     });
 
     it("should be able to create a new rental", async () => {
@@ -23,7 +29,7 @@ describe("Create Rental", () => {
             expected_return_date: dayAdd24Hours,           
         })
 
-        console.log(rental)
+        //console.log(rental)
 
         expect(rental).toHaveProperty("id")
         expect(rental).toHaveProperty("start_date")
