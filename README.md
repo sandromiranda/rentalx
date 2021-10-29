@@ -8,7 +8,7 @@
 ### `git clone https://github.com/sandromiranda/rentalx.git`
 
 
-2 - Use yarn or npm to install all node modules
+2 - Navigate to the rentalx folder and use yarn or npm to install all node modules
 
 ### `yarn install or npm install`
 
