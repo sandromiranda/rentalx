@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add tsyringe
+  /usr/local/bin/node /usr/local/bin/yarn add dayjs
 
 PATH: 
   /opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
