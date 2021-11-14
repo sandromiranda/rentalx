@@ -31,9 +31,3 @@
 6 - In order to manage the application, let's run the command below to create the user admin - more details in the admin.ts file
 
 ### `yarn seed:admin`
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 0105cea51442b1be1c6c0eebcf6d440cd2eb12d1
