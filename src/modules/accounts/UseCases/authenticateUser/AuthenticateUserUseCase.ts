@@ -15,11 +15,11 @@ interface IRequest {
 }
 
 interface IResponse {
+    token: string;
     user: {
         name: string;
         email: string;
     },
-    token: string;
     refresh_token: string;
 }
 
@@ -34,7 +34,7 @@ class AuthenticateUserUseCase {
         private dateProvider: IDateProvider
     ) {}
 
-    async execute({ email, password }: IRequest) {
+    async execute({ email, password }: IRequest): Promise<IResponse> {
         const user = await this.usersRepository.findByEmail(email);
         
         const { 
