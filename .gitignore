@@ -2,3 +2,4 @@
 node_modules
 regras_de_negocio
 .env
+./.env
