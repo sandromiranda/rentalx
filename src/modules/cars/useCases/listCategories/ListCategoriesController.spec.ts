@@ -35,7 +35,7 @@ describe("Create list controller", () => {
             password: "admin"
         });
 
-        const { refresh_token } = responseToken.body;
+        const { token } = responseToken.body;
 
         await request(app)
             .post("/categories")
@@ -44,7 +44,7 @@ describe("Create list controller", () => {
                 description: "Desc for category supertest2"
             })
             .set({
-                Authorization: `Bearer ${refresh_token}`
+                Authorization: `Bearer ${token}`
             })
 
         const response = await request(app).get("/categories");

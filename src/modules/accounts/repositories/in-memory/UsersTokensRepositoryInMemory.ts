@@ -28,6 +28,7 @@ class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
         user_id: string, 
         refresh_token: string
     ): Promise<UserTokens> {
+        
         const userToken = this.usersTokens.find(
             (ut) => ut.user_id === user_id && ut.refresh_token && refresh_token
         );
